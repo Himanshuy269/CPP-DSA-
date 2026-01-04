@@ -288,40 +288,40 @@
 // }
 
 
-#include<iostream>
-using namespace std;
-int main(){
-int i=0,j=0,temp;
-int m=5;
-int n=2;
-int nums1[]={1,2,3,0,0,0};
-int nums2[]={2,5,6};
-        while(i<m && j<n){
-            if(nums1[i]==0){ 
-                nums1[i] = nums2[j];
-                i++;
-                j++;
-             }
-            else if(nums1[i]<nums2[j]){
-                //nums1[i]=nums1[i];
-                i++;
-            }
-            else                     
-             temp= nums1[i];
-                nums1[i] = nums2[j];
-                nums2[j] = temp;
-                i++;
-                 j++;
-        }
-        while (j < n) {
-            nums1[i] = nums2[j];
-            i++;
-            j++; }
-            for(int w=0;w<m;w++){
-                cout<<nums1[w];
-            }
-            return 0;
-        }
+// #include<iostream>
+// using namespace std;
+// int main(){
+// int i=0,j=0,temp;
+// int m=5;
+// int n=2;
+// int nums1[]={1,2,3,0,0,0};
+// int nums2[]={2,5,6};
+//         while(i<m && j<n){
+//             if(nums1[i]==0){ 
+//                 nums1[i] = nums2[j];
+//                 i++;
+//                 j++;
+//              }
+//             else if(nums1[i]<nums2[j]){
+//                 //nums1[i]=nums1[i];
+//                 i++;
+//             }
+//             else                     
+//              temp= nums1[i];
+//                 nums1[i] = nums2[j];
+//                 nums2[j] = temp;
+//                 i++;
+//                  j++;
+//         }
+//         while (j < n) {
+//             nums1[i] = nums2[j];
+//             i++;
+//             j++; }
+//             for(int w=0;w<m;w++){
+//                 cout<<nums1[w];
+//             }
+//             return 0;
+//         }
 
 
 

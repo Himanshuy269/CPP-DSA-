@@ -39,7 +39,7 @@ int main(){
 //     j++;
 //     cout<<i;
 // }
-//hashmap for array
+//#hashmap for array
 // #include<iostream>
 // using namespace std;
 // int main(){
@@ -83,7 +83,7 @@ int main(){
         cout<<hashh[c];
     }
 }*/
-//hashmap
+//#hashmap
 // #include<iostream>
 // #include<map>
 // using namespace std;
@@ -104,23 +104,29 @@ int main(){
 //         cout<<it.first <<"->" <<it.second<<endl;   
 //     }    
 // }
+//#unordered map
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     cout<<"hii";
+//     int n;
+//     cin>>n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin>>arr[i];
+//     }
+//     //precompute
+//     unordered_map<int,int> mpp;
+//     for(int i=0;i<n;i++){
+//         mpp[arr[i]]++;
+//     }
+//     //iteration
+//     for(auto it : mpp){// it is pair 
+//         cout<<it.first <<"->" <<it.second<<endl;   
+//     }
+// }
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    cout<<"hii";
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    //precompute
-    unordered_map<int,int> mpp;
-    for(int i=0;i<n;i++){
-        mpp[arr[i]]++;
-    }
-    //iteration
-    for(auto it : mpp){// it is pair 
-        cout<<it.first <<"->" <<it.second<<endl;   
-    }
+    cout<<"github repo commit";
 }

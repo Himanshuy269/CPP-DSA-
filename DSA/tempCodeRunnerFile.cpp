@@ -1,0 +1,2 @@
+
+    cout<<"before update"<<n

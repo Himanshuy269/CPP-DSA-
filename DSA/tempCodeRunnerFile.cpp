@@ -1,2 +1,2 @@
 
-    cout<<"before update"<<n
+int main(){

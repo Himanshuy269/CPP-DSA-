@@ -93,18 +93,25 @@ int main(){
 /*#binary search using recursion*/
 /*#include<iostream>
 using namespace std;
+void print(int arr[],int s,int e){
+    for(int i=s;i<=e;i++){
+        cout<<arr[i]<<" ";
+    } 
+    cout<<endl;
+}
 bool binarysearch(int *arr,int s,int e,int key){
+    print(arr,s,e);
 if(s>e){return false;}
 int mid=s+(e-s)/2;
 if(arr[mid]==key){
     return true;
 }
 if(arr[mid]>key){
-    bool ans=binarysearch(arr,s,e-1,key);
+    bool ans=binarysearch(arr,s,mid-1,key);
     return ans;
 }
 else{
-bool ans=binarysearch(arr,s+1,e,key);
+bool ans=binarysearch(arr,mid+1,e,key);
 return ans;}
 }
 int main(){
@@ -118,7 +125,6 @@ if(ans){
     cout<<"element found";
 }
 else cout<<"not found";
-
 }*/
 //#reverse  string using recursion
 /*#include<iostream>
@@ -233,7 +239,7 @@ int main(){
     }
 }*/
 //insertion sort using recursion
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 void insertsort(int *arr,int n){
     if(n==1 || n==0) return;
@@ -252,7 +258,7 @@ int main(){
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
-}
+}*/
 
 
 

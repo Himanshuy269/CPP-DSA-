@@ -91,7 +91,7 @@ int main(){
         }
     } */
 /*#binary search using recursion*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 bool binarysearch(int *arr,int s,int e,int key){
 if(s>e){return false;}
@@ -119,4 +119,146 @@ if(ans){
 }
 else cout<<"not found";
 
+}*/
+//#reverse  string using recursion
+/*#include<iostream>
+using namespace std;
+void reverse(string& s,int i,int j){
+    cout<<endl<<s;
+    if(i>j) return;
+    swap(s[i],s[j]);
+    i++;
+    j--;
+    reverse(s,i,j);
 }
+int main(){
+    string s="hello";
+    int i=0;
+    int j=s.size()-1;
+    reverse(s,i,j);
+    cout<<endl<<s;
+}*/
+//palindrome string using recursion
+ /*#include<iostream>
+using namespace std;
+bool ispalindrome(string& s,int i,int j){
+     //cout<<endl<<s;
+    if(i>j) return true;
+    if(s[i]!=s[j]){
+        return false;
+    }
+    i++;
+    j--;
+    ispalindrome(s,i,j);
+}
+int main(){
+    string s="hello";
+    int i=0;
+    int n=s.size();
+    int j=n-1;
+    ispalindrome(s,i,j);
+    if(ispalindrome){
+        cout<<endl<<"yes plaindrome";
+    }
+    else cout<<"not a palindrome";
+}*/
+//palindrome string using recursion with one pointer
+/*
+#include<iostream>
+using namespace std;
+bool ispalindrome(string& s,int i){
+     //cout<<endl<<s;
+     int n=s.size();
+    if(i>=n/2) return true;
+    if(s[i]!=s[n-i-1]){
+        return false;
+    }
+    i++;
+    ispalindrome(s,i);
+}
+int main(){
+    string s="hello";
+    int i=0;
+    ispalindrome(s,i);
+    if(ispalindrome){
+        cout<<endl<<"yes plaindrome";
+    }
+    else cout<<"not a palindrome";
+}*/
+//bubblesort suing recursion
+/*#include<iostream>
+using namespace std;
+void bubblesort(int *arr,int n){
+    if(n==1 || n==0) return;
+    for(int i=0;i<n-1;i++){
+        if(arr[i]>arr[i+1]){
+        swap(arr[i],arr[i+1]);
+        }
+    }
+    bubblesort(arr,n-1);
+}
+int main(){
+    int arr[]={3,4,7,8,3,5};
+    int size=sizeof(arr)/4;
+    bubblesort(arr,size);
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+}*/
+//selection sort using recursion
+/*#include<iostream>
+using namespace std;
+#include<limits.h>
+void selectsort(int *arr,int n){
+    if(n==1 || n==0) return;
+    int min=INT_MAX;
+        int minidx=-1;
+    for(int i=0;i<n-1;i++){
+        if(min>arr[i]){
+            min=arr[i];
+        minidx=i;
+        }
+    }
+        swap(arr[0],arr[minidx]);
+    selectsort(arr+1,n-1);
+}
+int main(){
+    int arr[]={3,4,7,8,3,5};
+    int size=sizeof(arr)/4;
+    selectsort(arr,size);
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+}*/
+//insertion sort using recursion
+#include<iostream>
+using namespace std;
+void insertsort(int *arr,int n){
+    if(n==1 || n==0) return;
+    for(int i=1;i<=n-1;i++){
+    while(arr[i]<arr[i-1]){
+        swap(arr[i],arr[i-1]);
+    }
+    }
+    insertsort(arr,n-1);
+}
+int main(){
+    int arr[]={3,4,7,8,3,5};
+    int size=sizeof(arr)/4;
+    insertsort(arr,size);
+    cout << "insertion Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+}
+
+
+
+
+
+
+
+
+

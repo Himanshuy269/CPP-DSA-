@@ -1,4 +1,4 @@
-class Hero{
-    int health;
-    char level;
-};
+// class Hero{
+//     int health;
+//     char level;
+// };

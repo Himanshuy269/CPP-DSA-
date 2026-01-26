@@ -83,7 +83,7 @@ cout<<"level is"<<b->level<<endl;
 cout<<"health is"<<b->gethealth()<<endl;
 }*/
 //constructor
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class hero{
    private:
@@ -113,4 +113,52 @@ int main(){
        hero *m=new hero();
   cout<<"hello\n";
 
+}*/
+//parameterised constructor
+#include<iostream>
+using namespace std;
+class hero{
+   private:
+ int health;
+ public:
+ char level;
+ hero(){
+  cout<<"constructor called\n";
+ }
+ //paramertised constructor
+ hero(int health){
+  cout<<"this ="<<this<<endl;
+  this->health=health;
+}
+hero(int health,char level){
+  cout<<"adress of temp ="<<this<<endl;
+  this -> health =health;
+  this -> level=level;
+}
+void print(){
+  cout<<level<<endl<<health<<endl;
+}
+ int gethealth(){
+   return health;
+ }
+ char getlevel(){
+   return level;
+ }
+ void sethealth(int h){
+   health=h;
+ }
+   void setlevel(char ch){
+      level=ch;
+   }
+};
+int main(){
+  hero ramesh(34);
+  cout<<"adress of ramesh ="<<&ramesh<<"\n";
+  ramesh.print();
+  hero *h=new hero(11);
+  cout<<"adress of h"<<&h<<endl;
+  h->print();
+  hero temp(22,'a');
+  cout<<"adress of h"<<&temp<<endl;
+  temp.print();  
 }

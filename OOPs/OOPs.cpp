@@ -280,3 +280,74 @@ int main(){
 
  hero2.print();
 }*/
+//#deep copy
+#include<iostream>
+#include<string.h>
+using namespace std;
+class hero{
+   private:
+ int health;
+ public:
+ char *name;
+ char level;
+ hero(){
+  cout<<"simple constructor called\n";
+ }
+ //paramertised constructor
+ hero(int health){
+  cout<<"this ="<<this<<endl;
+  this->health=health;
+}
+hero(int health,char level){
+  //cout<<"adress of temp ="<<this<<endl;
+  this -> health =health;
+  this -> level=level;
+}
+//copy constructor
+hero(hero& temp){
+  char *ch=new char[strlen(temp.name)+1];
+  strcpy(ch,temp.name);
+  this->name=ch;
+  cout<<"copy constructor called"<<endl;
+  this->health=temp.health;
+  this->level=temp.level;
+}
+void print(){
+  cout<<endl;
+  cout<<"[ name="<<this->name<<",";
+  cout<<"health="<<this->health<<",";
+  cout<<"level="<<this->level<<" ]"<<endl;
+  cout<<endl;
+}
+int gethealth(){
+   return health;
+ }
+ char getlevel(){
+   return level;
+ }
+ void sethealth(int h){
+   health=h;
+ }
+   void setlevel(char ch){
+      level=ch;
+   }
+   void setname(char name[10] ){
+         strcpy(this->name, name);
+   }
+};
+int main(){
+ hero hero1;
+ hero1.sethealth(12);
+ hero1.setlevel('D');
+ char name[10]="chris";
+ hero1.setname(name);
+ hero1.print();
+ //use default copy constructor
+ hero hero2(hero1);
+ hero2.print();
+ //hero hero2=hero1
+ hero1.name[0]='t';
+ hero1.print();
+
+ hero2.print();
+}

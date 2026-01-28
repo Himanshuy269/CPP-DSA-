@@ -488,7 +488,7 @@ int main(){
  delete b;//to delete dynamic constructor
 }*/
 //#static keyword
-#include<iostream>
+/*#include<iostream>
 #include<string.h>
 using namespace std;
 class hero{
@@ -551,4 +551,73 @@ int gethealth(){
 int hero::timetocomplete=5;
 int main(){
  cout<< hero::timetocomplete;
+}*/
+//static function
+#include<iostream>
+#include<string.h>
+using namespace std;
+class hero{
+   private:
+ int health;
+ public:
+ char *name;
+ char level;
+ static int timetocomplete;
+ hero(){
+  cout<<"simple constructor called\n";
+ }
+ //paramertised constructor
+ hero(int health){
+  cout<<"this ="<<this<<endl;
+  this->health=health;
+}
+hero(int health,char level){
+  //cout<<"adress of temp ="<<this<<endl;
+  this -> health =health;
+  this -> level=level;
+}
+//copy constructor
+hero(hero& temp){
+  char *ch=new char[strlen(temp.name)+1];
+  strcpy(ch,temp.name);
+  this->name=ch;
+  cout<<"copy constructor called"<<endl;
+  this->health=temp.health;
+  this->level=temp.level;
+}
+void print(){
+  cout<<endl;
+  cout<<"[ name="<<this->name<<",";
+  cout<<"health="<<this->health<<",";
+  cout<<"level="<<this->level<<" ]"<<endl;
+  cout<<endl;
+}
+int gethealth(){
+   return health;
+ }
+ char getlevel(){
+   return level;
+ }
+ void sethealth(int h){
+   health=h;
+ }
+   void setlevel(char ch){
+      level=ch;
+   }
+   void setname(char name[10] ){
+         strcpy(this->name, name);
+   }
+   static int random(){
+    return timetocomplete;//can only return static member 
+   }
+   //destructor
+   ~hero(){
+    cout<<"destructor called"<<endl;
+   }// to delete staticslly allocstrd condtructor
+
+};
+int hero::timetocomplete=5;
+int main(){
+ cout<< hero::timetocomplete<<endl;
+ cout<< hero::random();
 }

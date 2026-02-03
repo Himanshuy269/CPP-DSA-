@@ -177,7 +177,7 @@ bus obj2;
    return 0;
 }*/
 //inheritance ambiguity
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class a{
     public:
@@ -196,4 +196,51 @@ int main(){
 c obj;
 obj.a::fun();
 obj.b::fun();
+}*/
+//#compile time polymorphism
+/*#include<iostream>
+using namespace std;
+class a{
+    public:
+    void sayhello(){
+        cout<<"hello peter"<<endl;
+    }
+    int sayhello(char name){
+        cout<<"hello peter"<<endl;
+    return 1;
+}
+    void sayhello(string name){
+        cout<<"hello peter"<<endl;
+    }
+
+};
+int main(){
+a obj;
+obj.sayhello();
+}*/
+//operator overloading
+#include<iostream>
+using namespace std;
+class B {
+    public:
+    int a;
+    int b;
+    int add(){
+        return a+b;
+    }
+    void operator+ (B &obj){ //operator+ (B &obj) receives obj2 into obj
+        int value1=this->a;
+        int value2=obj.a;
+        cout<<"output"<<value2-value1;
+    }
+    void operator() (){
+        cout<<"mai bracket hu"<<this->a<<endl;
+    }
+};
+int main(){
+    B obj1,obj2;
+    obj1.a=4;
+    obj2.b=7;
+    obj1 + obj2;
+    obj1();
 }

@@ -219,7 +219,7 @@ a obj;
 obj.sayhello();
 }*/
 //operator overloading
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class B {
     public:
@@ -243,4 +243,46 @@ int main(){
     obj2.b=7;
     obj1 + obj2;
     obj1();
+}*/
+//#run time polymorphism
+/*#include<iostream>
+using namespace std;
+class animal{
+    public:
+    void speak(){
+        cout<<"speaking"<<endl;
+    }
+};
+class dog:public animal{
+    public:
+    void speak(){
+        cout<<"barking"<<endl;
+    }
+};
+int main(){
+    dog obj;
+    obj.speak();
+}*/
+//abstraction
+#include<iostream>
+using namespace std;
+class abstraction{
+    private:    
+    int a;
+    int b;
+    public: //method to set values of private members
+    void set(int x,int y){
+        a=x;
+        b=y;
+    }
+void display(){
+    cout<<"a"<<a<<endl;
+    cout<<"b"<<b<<endl;
+}
+};
+int main(){
+    abstraction obj;
+    obj.set(10,20);
+    obj.display();
+    return 0;   
 }

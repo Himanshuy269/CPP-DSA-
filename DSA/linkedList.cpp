@@ -349,3 +349,92 @@ insertattail(tail,14);
 print(head);
 return 0;
 }*/
+//#insertatposition
+#include<iostream>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* prev;
+    node* next;
+    //constructor
+    node(int data){
+        this->data=data;
+        this->prev=NULL;
+        this->next=NULL;
+    }
+};
+
+void print(node* head){
+    node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<"   ";
+        temp=temp->next;
+    }
+cout<<endl;
+}
+//length of linked list
+int getlength(node* head){
+    int len=0;
+    node* temp=head;
+    while(temp!=NULL){
+        len++;
+        temp=temp->next;
+    }
+    return len;
+}
+void insertathead(node* &head,int data){
+    node* temp=new node(data);
+    temp->next=head;
+    head->prev=temp;
+    head=temp; 
+}
+//insertingattail
+void insertattail(node* &tail,int data){
+    node* temp=new node(data);
+    tail->next=temp;
+    temp->prev=tail;
+    tail=temp;
+}
+//insertatposition
+void insertatposition(node* &head,node* &tail,int position,int data){
+    //insert at start
+    if(position==1){
+        insertathead(head,data);
+    }
+    node* temp=head;
+    int cnt=1;
+    while(cnt<position-1){
+        temp=temp->next;
+        cnt++;
+    }
+    //inserting at last position
+    if(temp->next==NULL){
+        insertattail(tail,data);
+     }
+    //creating node for d
+    node* nodetoinsert=new node(data);
+    nodetoinsert->next=temp->next;
+    temp->next->prev=nodetoinsert;
+    temp->next=nodetoinsert;
+    nodetoinsert->prev=temp;
+
+}
+int main(){
+node* node1=new node(10);
+node* head=node1;
+node* tail=node1;
+print(head);
+cout<<getlength(head)<<endl;
+insertathead(head,11);
+print(head);
+insertathead(head,13);
+print(head);
+insertathead(head,8);
+print(head);
+insertattail(tail,14);
+print(head);
+insertatposition(head,tail,4,100);
+print(head);
+return 0;
+}

@@ -438,7 +438,11 @@ insertatposition(head,tail,4,100);
 print(head);
 return 0;
 }*/
+<<<<<<< HEAD
 //if no node is declared(correction)
+=======
+//if node is empty(correction)
+>>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
 #include<iostream>
 using namespace std;
 class node{
@@ -472,6 +476,7 @@ int getlength(node* head){
     }
     return len;
 }
+<<<<<<< HEAD
 void insertathead(node* &tail,node* &head,int data){
     //empty List
     if(head==NULL){
@@ -498,11 +503,44 @@ void insertattail(node* &head,node* &tail,int data){
     tail=temp;
 }
 }
+=======
+void insertathead(node* &head,node* &tail,int data){
+   //empty List
+   if(head==NULL){
+    node* temp=new node(data);
+    head=temp;
+    tail=temp;
+   }
+    else {node* temp=new node(data);
+    temp->next=head;git add .
+git commit
+    head->prev=temp;
+    head=temp; }
+}
+//insertingattail
+void insertattail(node* &tail,node* &head,int data){
+    if(tail==NULL){
+        node* temp=new node(data);
+        tail=temp;
+        head=temp;
+    }
+        else{
+            node* temp=new node(data);
+             tail->next=temp;
+    temp->prev=tail;
+    tail=temp;
+        }
+    }
+>>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
 //insertatposition
 void insertatposition(node* &head,node* &tail,int position,int data){
     //insert at start
     if(position==1){
+<<<<<<< HEAD
         insertathead(tail,head,data);
+=======
+        insertathead(head,data);
+>>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
     }
     node* temp=head;
     int cnt=1;
@@ -512,7 +550,11 @@ void insertatposition(node* &head,node* &tail,int position,int data){
     }
     //inserting at last position
     if(temp->next==NULL){
+<<<<<<< HEAD
         insertattail(head,tail,data);
+=======
+        insertattail(tail,data);
+>>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
      }
     //creating node for d
     node* nodetoinsert=new node(data);
@@ -527,6 +569,7 @@ node* head=NULL;
 node* tail=NULL;
 print(head);
 cout<<getlength(head)<<endl;
+<<<<<<< HEAD
 insertathead(tail,head,11);
 print(head);
 insertathead(tail,head,13);
@@ -534,6 +577,15 @@ print(head);
 insertathead(tail,head,8);
 print(head);
 insertattail(head,tail,14);
+=======
+insertathead(head,11);
+print(head);
+insertathead(head,13);
+print(head);
+insertathead(head,8);
+print(head);
+insertattail(tail,14);
+>>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
 print(head);
 insertatposition(head,tail,4,100);
 print(head);

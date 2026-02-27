@@ -438,11 +438,8 @@ insertatposition(head,tail,4,100);
 print(head);
 return 0;
 }*/
-<<<<<<< HEAD
 //if no node is declared(correction)
-=======
-//if node is empty(correction)
->>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
+/*
 #include<iostream>
 using namespace std;
 class node{
@@ -476,7 +473,6 @@ int getlength(node* head){
     }
     return len;
 }
-<<<<<<< HEAD
 void insertathead(node* &tail,node* &head,int data){
     //empty List
     if(head==NULL){
@@ -503,44 +499,11 @@ void insertattail(node* &head,node* &tail,int data){
     tail=temp;
 }
 }
-=======
-void insertathead(node* &head,node* &tail,int data){
-   //empty List
-   if(head==NULL){
-    node* temp=new node(data);
-    head=temp;
-    tail=temp;
-   }
-    else {node* temp=new node(data);
-    temp->next=head;git add .
-git commit
-    head->prev=temp;
-    head=temp; }
-}
-//insertingattail
-void insertattail(node* &tail,node* &head,int data){
-    if(tail==NULL){
-        node* temp=new node(data);
-        tail=temp;
-        head=temp;
-    }
-        else{
-            node* temp=new node(data);
-             tail->next=temp;
-    temp->prev=tail;
-    tail=temp;
-        }
-    }
->>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
 //insertatposition
 void insertatposition(node* &head,node* &tail,int position,int data){
     //insert at start
     if(position==1){
-<<<<<<< HEAD
         insertathead(tail,head,data);
-=======
-        insertathead(head,data);
->>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
     }
     node* temp=head;
     int cnt=1;
@@ -549,12 +512,8 @@ void insertatposition(node* &head,node* &tail,int position,int data){
         cnt++;
     }
     //inserting at last position
-    if(temp->next==NULL){
-<<<<<<< HEAD
+         if(temp->next==NULL){
         insertattail(head,tail,data);
-=======
-        insertattail(tail,data);
->>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
      }
     //creating node for d
     node* nodetoinsert=new node(data);
@@ -569,7 +528,6 @@ node* head=NULL;
 node* tail=NULL;
 print(head);
 cout<<getlength(head)<<endl;
-<<<<<<< HEAD
 insertathead(tail,head,11);
 print(head);
 insertathead(tail,head,13);
@@ -577,17 +535,154 @@ print(head);
 insertathead(tail,head,8);
 print(head);
 insertattail(head,tail,14);
-=======
-insertathead(head,11);
-print(head);
-insertathead(head,13);
-print(head);
-insertathead(head,8);
-print(head);
-insertattail(tail,14);
->>>>>>> 221043fe40f1b6bf16016e8919004618912effbb
 print(head);
 insertatposition(head,tail,4,100);
 print(head);
 return 0;
+}*/
+//deleting node in doubly linked list
+#include<iostream>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* prev;
+    node* next;
+    //constructor
+    node(int data){
+        this->data=data;
+        this->prev=NULL;
+        this->next=NULL;
+    }
+    ~node(){
+        int val=this->data;
+        if(next!=NULL){
+            delete next;
+            next=NULL;
+        }
+        cout<<"memory free for node with data"<<data<<endl;
+    }
+};
+void deletenode(int position,node* &head,node* &tail){
+    //deleting first position
+    if(position==1){
+        node* temp=head;
+        temp->next->prev=NULL;
+        head=temp->next;
+        temp->next=NULL;
+        delete temp;
+    }
+    else{
+        //deleting any middle node or last node
+        node* curr= head;
+        node* prev=NULL;
+        int cnt=1;
+        while(cnt<position){
+            prev=curr;
+            curr=curr-> next;
+            cnt++;
+        }
+        if(curr->next==NULL){ //If deleting last node
+            tail=prev;
+            prev->next=NULL;
+        }
+        else{
+            //middle node
+            prev->next=curr->next;
+            curr->next->prev=prev;
+            curr->next=NULL;
+            curr->prev=NULL;
+        }
+        
+        delete curr;
+    }
 }
+void print(node* head){
+    node* temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<"   ";
+        temp=temp->next;
+    }
+cout<<endl;
+}
+//length of linked list
+int getlength(node* head){
+    int len=0;
+    node* temp=head;
+    while(temp!=NULL){
+        len++;
+        temp=temp->next;
+    }
+    return len;
+}
+void insertathead(node* &tail,node* &head,int data){
+    //empty List
+    if(head==NULL){
+        node* temp=new node(data);
+        head=temp;
+        tail=temp;
+    }
+    else{node* temp=new node(data);
+    temp->next=head;
+    head->prev=temp;
+    head=temp; 
+}
+}
+//insertingattail
+void insertattail(node* &head,node* &tail,int data){
+    if(tail==NULL){
+        node* temp=new node(data);
+        tail=temp;
+        head=tail;
+    }
+    else{node* temp=new node(data);
+    tail->next=temp;
+    temp->prev=tail;
+    tail=temp;
+}
+}
+//insertatposition
+void insertatposition(node* &head,node* &tail,int position,int data){
+    //insert at start
+    if(position==1){
+        insertathead(tail,head,data);
+    }
+    node* temp=head;
+    int cnt=1;
+    while(cnt<position-1){
+        temp=temp->next;
+        cnt++;
+    }
+    //inserting at last position
+         if(temp->next==NULL){
+        insertattail(head,tail,data);
+     }
+    //creating node for d
+    node* nodetoinsert=new node(data);
+    nodetoinsert->next=temp->next;
+    temp->next->prev=nodetoinsert;
+    temp->next=nodetoinsert;
+    nodetoinsert->prev=temp;
+
+}
+int main(){
+node* head=NULL;
+node* tail=NULL;
+print(head);
+cout<<getlength(head)<<endl;
+insertathead(tail,head,11);
+print(head);
+insertathead(tail,head,13);
+print(head);
+insertathead(tail,head,8);
+print(head);
+insertattail(head,tail,14);
+print(head);
+insertatposition(head,tail,4,100);
+print(head);
+deletenode(3,head,tail);
+print(head);
+return 0;
+}
+
+

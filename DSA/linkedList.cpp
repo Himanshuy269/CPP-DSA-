@@ -683,7 +683,7 @@ return 0;
 }*/
 //circular Linked List
 //inserting node
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class node{
     public:
@@ -754,22 +754,99 @@ print(tail);
 insertnode(tail,3,4);
 print(tail);
 return 0;
+}*/
+//#deleting node in circular linked list
+#include<iostream>
+using namespace std;
+class node{
+    public:
+    int data;
+    node* next;        
+    node(int data){
+        this->data=data;
+        this->next=NULL;
+    }
+    ~node(){
+        int value=this->data;
+        if(this->next!=NULL){
+            delete next;
+            next=NULL;
+        }
+        cout<<"memory is free for node"<<value<<endl;
+    }
+
+};
+void insertnode(node* &tail,int element,int data){
+    //assuming element is present 
+    //if list is empty 
+    if(tail==NULL){
+        node* newnode=new node(data);
+        tail=newnode;
+        newnode->next=newnode;
+    }
+    else{
+        //non-empty List
+        //assuming that the element is present in the list
+        node* curr=tail;
+        while(curr->data!=element){
+            curr=curr->next;
+        }
+        //element found -> curr is representing elemnt wla node
+        node* temp=new node(data);
+        temp->next=curr->next;
+        curr->next=temp;
+    }    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void print(node* tail){
+    node* temp=tail;
+    do{
+        cout<<tail->data<<" ";
+        tail=tail->next;  
+    }
+     while(tail!=temp);
+    //{
+    //     cout<<tail->data<<" ";
+    //     tail=tail->next;
+    // }
+    cout<<endl;
+}
+void deletenode(node* &tail,int value){
+    //if empty List
+    if(tail==NULL){
+        cout<<"list is empty ,please check again";
+    }
+    else{
+        node *prev=tail;
+        node* curr=prev->next;
+        while(curr->data!=value){
+            prev=curr;
+            curr=curr->next;
+        }
+        prev->next=curr->next;
+        if(curr==tail){
+            tail=prev;
+        }
+        curr->next=NULL;
+        delete curr;
+    }
+}
+int main(){
+node* tail=NULL;
+insertnode(tail,5,3);
+print(tail);
+insertnode(tail,3,5);
+print(tail);
+insertnode(tail,5,7);
+print(tail);
+insertnode(tail,7,9);
+print(tail);
+insertnode(tail,5,6);
+print(tail);
+insertnode(tail,9,10);
+print(tail);
+insertnode(tail,3,4);
+print(tail);
+deletenode(tail,3);
+print(tail);
+return 0;
+}

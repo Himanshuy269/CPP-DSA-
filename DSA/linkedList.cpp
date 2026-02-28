@@ -799,6 +799,10 @@ void insertnode(node* &tail,int element,int data){
 }
 void print(node* tail){
     node* temp=tail;
+    if(tail==NULL){
+        cout<<"list is empty"; 
+        return;
+    }
     do{
         cout<<tail->data<<" ";
         tail=tail->next;  
@@ -823,7 +827,11 @@ void deletenode(node* &tail,int value){
             curr=curr->next;
         }
         prev->next=curr->next;
-        if(curr==tail){
+        //1 node List
+        if(curr==prev){
+            tail=NULL;
+        }
+        else if(curr==tail){
             tail=prev;
         }
         curr->next=NULL;
@@ -832,20 +840,20 @@ void deletenode(node* &tail,int value){
 }
 int main(){
 node* tail=NULL;
-insertnode(tail,5,3);
-print(tail);
-insertnode(tail,3,5);
-print(tail);
-insertnode(tail,5,7);
-print(tail);
-insertnode(tail,7,9);
-print(tail);
-insertnode(tail,5,6);
-print(tail);
-insertnode(tail,9,10);
-print(tail);
-insertnode(tail,3,4);
-print(tail);
+ insertnode(tail,5,3);
+ print(tail);
+// insertnode(tail,3,5);
+// print(tail);
+// insertnode(tail,5,7);
+// print(tail);
+// insertnode(tail,7,9);
+// print(tail);
+// insertnode(tail,5,6);
+// print(tail);
+// insertnode(tail,9,10);
+// print(tail);
+// insertnode(tail,3,4);
+// print(tail);
 deletenode(tail,3);
 print(tail);
 return 0;

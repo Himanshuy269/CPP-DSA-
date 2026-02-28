@@ -1,2 +1,14 @@
-
-int main(){
+insertnode(tail,5,3);
+// print(tail);
+// insertnode(tail,3,5);
+// print(tail);
+// insertnode(tail,5,7);
+// print(tail);
+// insertnode(tail,7,9);
+// print(tail);
+// insertnode(tail,5,6);
+// print(tail);
+// insertnode(tail,9,10);
+// print(tail);
+// insertnode(tail,3,4);
+// print(tail);

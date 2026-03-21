@@ -263,8 +263,9 @@ int main(){
     print(tail);
     return 0;
 }*/
-//isCircularORnot
+//isCircularORnot and isCycle
 #include<iostream>
+#include<map>
 using namespace std;
 class node{
     public:
@@ -355,6 +356,19 @@ bool isCircular(node* head){
     if(temp==head){ return true ;}
     return false;
 }
+bool isCycle(node* head){
+    if(head==NULL){ return false;}
+    map<node*,bool> visited;
+    node* temp=head;
+    while(temp!=NULL){
+        if(visited[temp]==true){
+            return true;
+        }
+        visited[temp]=true;
+        temp=temp->next;
+    }
+    return false;
+}
 int main(){
 node* tail=NULL;
  insertnode(tail,5,3);
@@ -374,8 +388,15 @@ insertnode(tail,3,5);
 //deletenode(tail,3);
 //print(tail);
 if(isCircular(tail)){
-    cout<<"list is circular";
+    cout<<"list is circular"<<endl;
 }
 else cout<<"list is not circular";
+if(isCycle(tail)){
+    cout<<"list is cycle";
+}
+else{ cout<<"list is not cycle";}
 return 0;
 }
+
+
+

@@ -398,7 +398,7 @@ if(detectLoop(tail)){
 else{ cout<<"cycle is not present";}
 return 0;
 }*/
-//floydDetectCycle
+//floydDetectCycle && getstartingNode
 #include<iostream>
 #include<map>
 using namespace std;
@@ -534,6 +534,15 @@ while(slow!=intersection){
 }
 return slow;
 }
+void removeloop(node* head){
+    if(head==NULL){return;}
+    node* startofloop=getstartingnode(head);
+    node* temp=startofloop;
+    while(temp->next!=startofloop){
+        temp=temp->next;
+    }
+    temp->next=NULL;
+}
 int main(){
 node* tail=NULL;
  insertnode(tail,5,3);
@@ -565,7 +574,12 @@ if(floydDetectLoop(tail)!=NULL){
 }
 else
 cout<<"no cycle";
+node* loop=getstartingnode(tail);
+cout<<"loop start at"<<loop->data<<endl;
 cout<<getstartingnode(tail);
+//removeloop
+removeloop(tail);
+print(tail);
 return 0;
 }
     

@@ -50,10 +50,44 @@ void levelOrderTransversal(node* root){
             }
         }
     }
+    void InOrder(node* root){
+        if(root==NULL){
+            return;
+        }
+        InOrder(root->left);
+        cout<<root->data<<" ";
+        InOrder(root->right);
+    }
+    void PreOrder(node* root){
+        if(root==NULL){
+            return;
+        }
+        cout<<root->data<<" ";
+        PreOrder(root->left);
+        PreOrder(root->right);
+    }
+    void PostOrder(node* root){
+        if(root==NULL){
+            return;
+        }
+        PostOrder(root->left);
+        PostOrder(root->right);
+        cout<<root->data<<" ";
+    }
 int main(){
   node* root=NULL;
   root=buildTree(root);
   cout<<"level order transversal of binary tree"<<endl;
   levelOrderTransversal(root);
+  cout<<endl;
+  cout<<"Inorder transversal"<<endl;
+  InOrder(root);
+  cout<<endl;
+  cout<<"PreOrder transversal"<<endl;
+  PreOrder(root);
+  cout<<endl;
+  cout<<"PostOrder transversal"<<endl;
+  PostOrder(root);
+  cout<<endl;
   return 0;
 }
